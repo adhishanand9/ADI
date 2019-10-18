@@ -47,7 +47,7 @@ int main()
 			{
 				temp = temp->next;
 			}
-			temp->next = ptr;			
+			temp->next = ptr;
 		}
 	}
 	int n = checkPalindrome(head);
