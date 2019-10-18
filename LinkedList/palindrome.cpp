@@ -1,59 +1,61 @@
-#include<iostream>
-#include<stack>
+#include<bits/stdc++.h>
 using namespace std;
 
-struct node
-{
-	struct node *next;
-	int data;
+class Node {
+public:
+		int data;
+		Node(int d){
+			data = d;
+		}
+		Node *ptr;
 };
 
-int checkPalindrome(struct node *head)
-{
-	struct node *temp = head;
-	stack<int> s;
-	while(temp!=NULL)
-	{
-		s.push(temp->data);
-		temp=temp->next;
-	}
-	while(head!=NULL)
-	{
-		int i = s.top();
-		if(head->data!=i)
-			return 0;
-		s.pop();
-		head=head->next;
-	}
-	return 1;
-}
+bool isPalin(Node* head){
+		Node* slow= head;
 
-int main()
-{
-	struct node *head=NULL,*temp,*ptr;
-	for(int i=1;i<6;i++)
-	{
-		ptr = (struct node*)malloc(sizeof(struct node));
-		ptr->data = i;
-		ptr->next = NULL;
-		if(head == NULL)
-		{
-			head = ptr;
+		stack <int> s;
+
+
+		while(slow != NULL){
+				s.push(slow->data);
+
+				slow = slow->ptr;
 		}
-		else
-		{
-			temp = head;
-			while(temp->next != NULL)
-			{
-				temp = temp->next;
+
+		while(head != NULL ){
+
+			int i=s.top();
+			s.pop();
+			if(head -> data != i){
+				return false;
 			}
-			temp->next = ptr;
-		}
-	}
-	int n = checkPalindrome(head);
 
-	if(n==1)
-		cout<<"Yes";
+		head=head->ptr;
+		}
+
+return true;
+}
+int main(){
+
+	Node one = Node(1);
+	Node two = Node(2);
+	Node three = Node(3);
+	Node four = Node(2);
+	Node five = Node(1);
+	five.ptr = NULL;
+	one.ptr = &two;
+	two.ptr = &three;
+	three.ptr = &four;
+	four.ptr = &five;
+	Node* temp = &one;
+
+
+	int result = isPalin(&one);
+
+	if(result == 1)
+			cout<<"isPalindrome is true\n";
 	else
-		cout<<"No";
+		cout<<"isPalindrome is true\n";
+
+return 0;
 }
