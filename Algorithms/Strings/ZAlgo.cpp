@@ -34,8 +34,11 @@ void calZ(string concat,int Z[])
 
 int main()
 {
-	string text = "rajatisrajat"; 
-    string pattern = "raj"; 
-    searchIndex(text, pattern); 
-    return 0; 
+		string text,pattern;
+		cout<<"Enter Text:";
+		getline(cin,text);
+		cout<<"Enter Pattern:";
+		cin>>pattern;
+    searchIndex(text, pattern);
+    return 0;
 }

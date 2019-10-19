@@ -1,9 +1,9 @@
 #include<iostream>
 #include<cstdlib>
 #include<stack>
-using namespace std; 
+using namespace std;
 
-struct tree 
+struct tree
 {
 	struct tree *left,*right;
 	int data;

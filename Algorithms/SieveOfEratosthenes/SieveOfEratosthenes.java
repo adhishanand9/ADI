@@ -30,11 +30,11 @@ class SieveOfEratosthenes
 		}
 	}
 
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{
 		Scanner obj = new Scanner(System.in);
 		System.out.println("Enter No till u want Prime Numbers : ");
 		int n = obj.nextInt();
-		sieveOferatosthenes(n);	
+		sieveOferatosthenes(n);
 	}
 }
